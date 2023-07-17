@@ -28,7 +28,7 @@ class Player:
         # movement to the left
         if keys[pg.K_a]:
             dx += speed_sin
-            dx += -speed_cos
+            dy += -speed_cos
         # movement to the right
         if keys[pg.K_d]:
             dx += -speed_sin
