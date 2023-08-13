@@ -36,5 +36,6 @@ class ObjectRenderer:
             2: self.get_texture('D:/school/project2/textures/2.png'),
             3: self.get_texture('D:/school/project2/textures/3.png'),
             4: self.get_texture('D:/school/project2/textures/4.png'),
-            5: self.get_texture('D:/school/project2/textures/5.png')
+            5: self.get_texture('D:/school/project2/textures/5.png'),
+            6: self.get_texture('D:/school/project2/textures/6.png')
         }
