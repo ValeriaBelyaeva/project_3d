@@ -4,8 +4,8 @@ class ObjectHandler:
     def __init__(self, game):
         self.game = game
         self.sprite_list = []
-        self.static_sprite_path = 'D:/school/project2/textures/static_sprite/'
-        self.anim_sprite_path = 'D:/school/project2/textures/animated_sprite/'
+        self.static_sprite_path = 'textures/static_sprite/'
+        self.anim_sprite_path = 'textures/animated_sprite/'
         add_sprite = self.add_sprite
 
         # sprite map

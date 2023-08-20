@@ -6,7 +6,7 @@ class ObjectRenderer:
         self.game = game
         self.screen = game.screen
         self.wall_textures = self.load_wall_textures()
-        self.sky_image = self.get_texture('D:/school/project2/resources/textures/sky.png', (WIDTH, HALF_HEIGHT))
+        self.sky_image = self.get_texture('resources/textures/sky.png', (WIDTH, HALF_HEIGHT))
         self.sky_offset = 0
 
     def draw(self):
