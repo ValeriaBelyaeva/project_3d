@@ -12,12 +12,12 @@ class PathFinding:
     def get_path(self, start, goal):
         self.visited = self.bfs(start, goal, self.graph)
         path = [goal]
-        step  = self.visited.get(goal, start)
+        step = self.visited.get(goal, start)
 
         while step and step != start:
             path.append(step)
             step = self.visited[step]
-            return path[-1]
+        return path[-1]
 
     def bfs(self, start, goal, graph):
         queue = deque([start])

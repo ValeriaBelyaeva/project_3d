@@ -49,6 +49,14 @@ class NPC(AnimatedSprite):
         dy = math.sin(angle) * self.speed
         self.check_wall_collision(dx, dy)
 
+    def attack(self):
+        pass
+        # if self.animation_trigger:
+        #     self.game.sound.npc_shot.play()
+        #     if random() < self.accuracy:
+        #         pass
+                # self.game.player.get_damage(self.attack_damage)
+
     def animate_death(self):
         if not self.alive:
             if self.game.global_trigger and self.frame_counter < len(self.death_images) -1:
