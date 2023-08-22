@@ -28,7 +28,8 @@ class NPC(AnimatedSprite):
         self.check_animation_time()
         self.get_spritte()
         self.run_logic()
-        self.draw_ray_cast()
+        if TWO_D_MOD:
+            self.draw_ray_cast()
 
     def check_wall(self, x, y):
         return (x, y) not in self.game.map.world_map
@@ -51,11 +52,10 @@ class NPC(AnimatedSprite):
         self.check_wall_collision(dx, dy)
 
     def attack(self):
-        pass
-        # if self.animation_trigger:
-        #     self.game.sound.npc_shot.play()
-        #     if random() < self.accuracy:
-        #         pass
+        if self.animation_trigger:
+            self.game.sound.npc_shot.play()
+            if random() < self.accuracy:
+                pass
                 # self.game.player.get_damage(self.attack_damage)
 
     def animate_death(self):
