@@ -55,8 +55,7 @@ class NPC(AnimatedSprite):
         if self.animation_trigger:
             self.game.sound.npc_shot.play()
             if random() < self.accuracy:
-                pass
-                # self.game.player.get_damage(self.attack_damage)
+                self.game.player.get_damage(self.attack_damage)
 
     def animate_death(self):
         if not self.alive:

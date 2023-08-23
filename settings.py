@@ -4,7 +4,7 @@ import math
 RES = WIDTH, HEIGHT = 1600, 900
 HALF_WIDTH = WIDTH // 2
 HALF_HEIGHT = HEIGHT // 2
-TWO_D_MOD = True
+TWO_D_MOD = False
 FPS = 60
 
 # player settings
