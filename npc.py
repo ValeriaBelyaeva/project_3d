@@ -10,8 +10,7 @@ class NPC(AnimatedSprite):
         self.death_images = self.get_images(self.path + '/death')
         self.idle_images = self.get_images(self.path + '/idle')
         self.pain_images = self.get_images(self.path + '/pain')
-        self.walk_images = self.get_images(self.path + '/walk'
-                                                       '')
+        self.walk_images = self.get_images(self.path + '/walk')
         self.attack_dist = randint(3, 6)
         self.speed = 0.03
         self.size = 10

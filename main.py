@@ -56,7 +56,9 @@ class Game:
     def check_events(self):
         self.global_trigger = False
         for event in pg.event.get():
+            self.player.check_victory()
             if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
+                print(self.player.obje)
                 pg.quit()
                 sys.exit()
             elif event.type == self.global_event:
