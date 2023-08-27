@@ -2,6 +2,7 @@ from settings import *
 import pygame as pg
 import math
 
+
 class Player:
     def __init__(self, game):
         self.game = game
@@ -27,15 +28,17 @@ class Player:
         if self.health < 1:
             self.game.object_renderer.game_over()
             pg.display.flip()
-            pg.t1aime.delay(1500)
+            pg.time.delay(1500)
             self.game.new_game()
 
     def check_victory(self):
-        if self.game.object_handler==[]:
+        if self.game.object_handler == []:
             self.game.object_renderer.victory()
             pg.display.flip()
             pg.time.delay(1500)
             self.game.new_game()
+        # else:
+        #     print(self.game.object_handler)
 
     def get_damage(self, damage):
         self.health -= damage
