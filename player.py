@@ -20,7 +20,7 @@ class Player:
 
     def check_health_recovery_delay(self):
         time_now = pg.time.get_ticks()
-        if time_now-self.time_prev>self.health_recovery_delay:
+        if time_now - self.time_prev > self.health_recovery_delay:
             self.time_prev = time_now
             return True
 
@@ -32,7 +32,7 @@ class Player:
             self.game.new_game()
 
     def check_victory(self):
-        if self.game.object_handler == []:
+        if not self.game.object_handler:
             self.game.object_renderer.victory()
             pg.display.flip()
             pg.time.delay(1500)
@@ -98,10 +98,10 @@ class Player:
             self.y += dy
 
     def draw(self):
-        pg.draw.line(self.game.screen, 'yellow', (self.x*100, self.y*100),
-                    (self.x*100 + WIDTH * math.cos(self.angle),
-                     self.y*100 + WIDTH * math.sin(self.angle)), 2)
-        pg.draw.circle(self.game.screen, 'green', (self.x*100, self.y*100), 15)
+        pg.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y * 100),
+                     (self.x * 100 + WIDTH * math.cos(self.angle),
+                      self.y * 100 + WIDTH * math.sin(self.angle)), 2)
+        pg.draw.circle(self.game.screen, 'green', (self.x * 100, self.y * 100), 15)
 
     def mouse_control(self):
         mx, my = pg.mouse.get_pos()
