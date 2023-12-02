@@ -10,6 +10,8 @@ class Player:
         self.angle = PLAYER_ANGLE
         self.shot = False
         self.health = PLAYER_MAX_HEALTH
+        self.endurance = PLAYER_MAX_ENDURANCE
+        self.endurance_time = game.time_-1
         self.rel = 0
         self.health_recovery_delay = 700
         self.time_prev = pg.time.get_ticks()
@@ -32,13 +34,12 @@ class Player:
             self.game.new_game()
 
     def check_victory(self):
-        if not self.game.object_handler:
+        cur_alive = sum([int(npc.alive) for npc in self.game.object_handler.npc_list])
+        if cur_alive == 0:
             self.game.object_renderer.victory()
             pg.display.flip()
             pg.time.delay(1500)
             self.game.new_game()
-        # else:
-        #     print(self.game.object_handler)
 
     def get_damage(self, damage):
         self.health -= damage
@@ -53,15 +54,27 @@ class Player:
                 self.shot = True
                 self.game.weapon.reloading = True
 
-    def movement(self):
+    def movement(self, ):
         sin_a = math.sin(self.angle)
         cos_a = math.cos(self.angle)
         dx, dy = 0, 0
-        speed = PLAYER_SPEED * self.game.delta_time
+        keys = pg.key.get_pressed()
+
+        if keys[pg.K_SPACE] and self.endurance > 0:
+            speed = PLAYER_SPEED_RUN * self.game.delta_time
+            if self.endurance_time != self.game.time_:
+                self.endurance_time = self.game.time_
+                self.endurance -= 1
+        else:
+            speed = PLAYER_SPEED * self.game.delta_time
+            if self.endurance_time+2 == self.game.time_:
+                self.endurance_time = self.game.time_
+                self.endurance += 1
+                self.endurance %= PLAYER_MAX_ENDURANCE
+
         speed_sin = speed * sin_a
         speed_cos = speed * cos_a
 
-        keys = pg.key.get_pressed()
         # moving forward
         if keys[pg.K_w]:
             dx += speed_cos

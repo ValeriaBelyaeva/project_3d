@@ -38,10 +38,11 @@ class ObjectRenderer:
         self.screen.blit(self.blood_screen, (0, 0))
 
     def draw_background(self):
-        self.sky_offset = (self.sky_offset + 4.5 * self.game.player.rel) % WIDTH
-        self.screen.blit(self.sky_image, (-self.sky_offset, 0))
-        self.screen.blit(self.sky_image, (-self.sky_offset + WIDTH, 0))
+        # self.sky_offset = (self.sky_offset + 4.5 * self.game.player.rel) % WIDTH
+        # self.screen.blit(self.sky_image, (-self.sky_offset, 0))
+        # self.screen.blit(self.sky_image, (-self.sky_offset + WIDTH, 0))
         # floor
+        pg.draw.rect(self.screen, CEILING_COLOR, (0, 0, WIDTH, HEIGHT))
         pg.draw.rect(self.screen, FLOOR_COLOR, (0, HALF_HEIGHT, WIDTH, HEIGHT))
 
     def render_game_objects(self):
@@ -60,6 +61,5 @@ class ObjectRenderer:
             2: self.get_texture('resources/textures/2.png'),
             3: self.get_texture('resources/textures/3.png'),
             4: self.get_texture('resources/textures/4.png'),
-            5: self.get_texture('resources/textures/5.png'),
-            6: self.get_texture('resources/textures/6.png')
+            5: self.get_texture('resources/textures/5.png')
         }

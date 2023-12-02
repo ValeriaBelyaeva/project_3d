@@ -10,6 +10,7 @@ from object_handler import *
 from weapon import *
 from sound import *
 from pathfinding import *
+import time
 
 
 class Game:
@@ -18,6 +19,7 @@ class Game:
         pg.mouse.set_visible(False)
         self.screen = pg.display.set_mode(RES)
         self.clock = pg.time.Clock()
+        self.time_ = int(time.time())
         self.delta_time = 1
         self.global_trigger = False
         self.global_event = pg.USEREVENT + 0
@@ -25,6 +27,10 @@ class Game:
         self.new_game()
 
     def new_game(self):
+        """
+        Creates a compilation of all classes in the game
+        :return: pass
+        """
         self.map = Map(self)
         self.player = Player(self)
         self.object_renderer = ObjectRenderer(self)
@@ -35,6 +41,10 @@ class Game:
         self.pathfinding = PathFinding(self)
 
     def update(self):
+        """
+        Updates the images of all items in the game
+        :return: pass
+        """
         self.player.update()
         self.raycasting.update()
         self.object_handler.update()
@@ -42,8 +52,14 @@ class Game:
         pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
+        self.time_ = int(time.time())
 
     def draw(self):
+        """
+        Starts rendering of class objects. Depends on visualization mod (3d 2d)
+        input - TWO_D_MOD
+        :return:pass
+        """
         if TWO_D_MOD:
             self.screen.fill('black')
             self.map.draw()

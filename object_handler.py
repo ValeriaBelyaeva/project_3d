@@ -19,8 +19,27 @@ class ObjectHandler:
         add_sprite(AnimatedSprite(game))
 
         # npc map
-        add_npc(NPC(game))
-        add_npc(NPC(game, pos=(11.5, 4.5)))
+
+        # right room
+        add_npc(NPC(game, pos=(2, 12)))
+        add_npc(NPC(game, pos=(3, 13)))
+
+        # left room
+        add_npc(NPC(game, pos=(3, 3)))
+        add_npc(NPC(game, pos=(3, 4)))
+        # near left room
+        add_npc(NPC(game, pos=(7, 3)))
+        add_npc(NPC(game, pos=(9.5, 4.5)))
+
+        # main hall
+        add_npc(NPC(game, pos=(10, 8.5)))
+        add_npc(NPC(game, pos=(16, 7.5)))
+        add_npc(NPC(game, pos=(20, 8.5)))
+
+        #big left room
+        add_npc(NPC(game, pos=(13, 2)))
+        add_npc(NPC(game, pos=(16, 3)))
+
 
     def update(self):
         self.npc_position = {npc.map_pos for npc in self.npc_list if npc.alive}

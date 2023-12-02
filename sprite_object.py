@@ -55,8 +55,11 @@ class SpriteObject:
 
 
 class AnimatedSprite(SpriteObject):
+    """
+    class of animated objects.
+    """
     def __init__(self, game, path='resources/sprites/animated/0.png',
-                 pos=(11.5, 3.5), scale = 0.8, shift=0.15, animation_time = 120):
+                 pos=(20, 8), scale = 0.8, shift=0.15, animation_time = 120):
         super().__init__(game, path, pos, scale, shift)
         self.animation_time = animation_time
         self.path = path.rsplit('/', 1)[0]
