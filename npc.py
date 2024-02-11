@@ -53,10 +53,10 @@ class NPC(AnimatedSprite):
 
     def attack(self):
         if self.animation_trigger:
-            if self.was_shot==0:
+
+            if self.was_shot == 0:
                 self.game.sound.npc_shot.play()
-            self.was_shot=(self.was_shot+1)%3
-            self.game.sound.npc_shot.play()
+            self.was_shot = (self.was_shot + 1) % 3
             if random() < self.accuracy:
                 self.game.player.get_damage(self.attack_damage)
 
