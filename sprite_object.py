@@ -25,7 +25,7 @@ class SpriteObject:
 
         image = pg.transform.scale(self.image, (proj_width, proj_height))
 
-        self.sprite_half_width = proj_width//2
+        self.sprite_half_width = proj_width//4
         height_shift = proj_height * self.SPRITE_HEIGHT_SHIFT
         pos = self.screen_x - self.sprite_half_width, HALF_HEIGHT - proj_height // 2 + height_shift
 

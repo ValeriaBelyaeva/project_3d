@@ -61,10 +61,13 @@ class Game:
         :return:pass
         """
         if TWO_D_MOD:
+            # render in 2D mood
+            # don't render static or animated sprites
             self.screen.fill('black')
-            self.map.draw()
+            self.map.draw() # game environment render
             self.player.draw()
         else:
+            # for render the game environment and player parameters
             self.object_renderer.draw()
             self.weapon.draw()
 

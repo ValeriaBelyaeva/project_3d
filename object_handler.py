@@ -15,8 +15,9 @@ class ObjectHandler:
         self.npc_position = {}
 
         # sprite map
-        add_sprite(SpriteObject(game))
-        add_sprite(AnimatedSprite(game))
+
+        # add_sprite(SpriteObject(game))
+        # add_sprite(AnimatedSprite(game))
 
         # npc map
 

@@ -101,7 +101,8 @@ class Player:
         self.angle %= math.tau
 
     def check_wall(self, x, y):
-        return (x, y) not in self.game.map.world_map
+        return (x, y) not \
+               in self.game.map.world_map
 
     def check_wall_collision(self, dx, dy):
         scale = PLAYER_SIZE_SCALE / self.game.delta_time

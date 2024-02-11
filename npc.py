@@ -22,6 +22,7 @@ class NPC(AnimatedSprite):
         self.ray_cast_value = False
         self.frame_counter = 0
         self.player_search_trigger = False
+        self.was_shot=0
 
     def update(self):
         self.check_animation_time()
@@ -52,6 +53,9 @@ class NPC(AnimatedSprite):
 
     def attack(self):
         if self.animation_trigger:
+            if self.was_shot==0:
+                self.game.sound.npc_shot.play()
+            self.was_shot=(self.was_shot+1)%3
             self.game.sound.npc_shot.play()
             if random() < self.accuracy:
                 self.game.player.get_damage(self.attack_damage)
